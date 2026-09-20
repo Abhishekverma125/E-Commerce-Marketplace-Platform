@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #172554;
+}
+
+header {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5%;
+    border-bottom: 1px solid #dbe5f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 10px;
+}
+
+main {
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px auto;
+}
+
+.product-layout {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+aside {
+    width: 22%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+aside h4 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+aside label {
+    display: block;
+    margin: 12px 0;
+}
+
+.products {
+    width: 78%;
+}
+
+.sort {
+    background: white;
+    padding: 15px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.sort select {
+    padding: 8px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.product-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+}
+
+.product-card h3 {
+    margin-top: 10px;
+}
+
+.product-card p {
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.product-card span {
+    color: #f5a400;
+}
+
+footer {
+    background-color: #0d2f6f;
+    color: #ffffff;
+    margin-top: 60px;
+}
+
+.footer-content {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+    padding: 45px 0;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+    gap: 30px;
+}
+
+.footer-section h2 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    color: #dbeafe;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    display: block;
+    color: #dbeafe;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 9px;
+    transition: 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    background-color: #082457;
+    text-align: center;
+    padding: 18px;
+    border-top: 1px solid #244b88;
+}
+
+.footer-bottom p {
+    color: #dbeafe;
+    font-size: 14px;
+}
+
+
+/* Tablets */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+    }
+
+    nav a {
+        margin: 5px 10px;
+    }
+
+    .product-layout {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .products {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px 4%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    header > div:last-child {
+        font-size: 14px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 14px;
+        margin: 5px 7px;
+    }
+
+    main {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    main h1 {
+        font-size: 26px;
+    }
+
+    .product-layout {
+        gap: 20px;
+    }
+
+    aside {
+        padding: 15px;
+    }
+
+    .sort {
+        text-align: left;
+    }
+
+    .sort select {
+        margin-top: 8px;
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 35px 0;
+    }
+
+    .footer-section h2 {
+        font-size: 22px;
+    }
+
+    .footer-bottom {
+        padding: 15px;
+    }
+}
