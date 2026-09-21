@@ -23,6 +23,32 @@ header {
     top: 0;
     z-index: 1000;
 }
+.logo {
+    color: #1456b8;
+    font-size: 28px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #172554;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 9px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+nav a:hover {
+    background-color: #1456b8;
+    color: #ffffff;
+}
 
 .logo {
     font-size: 25px;
@@ -119,63 +145,53 @@ button:hover {
 }
 
 footer {
-    background-color: #0d2f6f;
-    color: #ffffff;
-    margin-top: 60px;
+    background-color: #172554;
+    color: white;
+    margin-top: 50px;
 }
 
 .footer-content {
     width: 90%;
-    max-width: 1300px;
+    
     margin: auto;
-    padding: 45px 0;
+    padding: 40px 0;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
 }
-
 .footer-section h2 {
-    color: #ffffff;
-    font-size: 24px;
-    margin-bottom: 12px;
-}
-
-.footer-section h3 {
-    color: #ffffff;
-    font-size: 17px;
+    /* color: #ffffff;
+    font-size: 24px; */
     margin-bottom: 15px;
 }
-
-.footer-section p {
-    color: #dbeafe;
-    font-size: 14px;
-    margin-bottom: 8px;
+.footer-section h3 {
+    /* color: #ffffff;
+    font-size: 17px; */
+    margin-bottom: 15px;
 }
-
+.footer-section p {
+    color: #dbe5f5;
+    line-height: 1.6;
+}
 .footer-section a {
     display: block;
-    color: #dbeafe;
+    color: #dbe5f5;
     text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 9px;
-    transition: 0.3s;
+    margin:10px 0;
 }
-
 .footer-section a:hover {
     color: #ffffff;
-    padding-left: 5px;
+    
 }
-
 .footer-bottom {
-    background-color: #082457;
+    
     text-align: center;
-    padding: 18px;
-    border-top: 1px solid #244b88;
+    padding: 15px;
+    border-top: 1px solid #405070;
 }
-
 .footer-bottom p {
-    color: #dbeafe;
-    font-size: 14px;
+    color: #dbe5f5;
+    
 }
 
 
