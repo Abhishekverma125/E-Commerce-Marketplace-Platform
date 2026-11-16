@@ -23,12 +23,14 @@ header {
     top: 0;
     z-index: 1000;
 }
+
 .logo {
     color: #1456b8;
     font-size: 28px;
     font-weight: bold;
     white-space: nowrap;
 }
+
 nav {
     display: flex;
     align-items: center;
@@ -45,6 +47,7 @@ nav a {
     border-radius: 5px;
     transition: 0.3s;
 }
+
 nav a:hover {
     background-color: #1456b8;
     color: #ffffff;
@@ -152,44 +155,127 @@ footer {
 
 .footer-content {
     width: 90%;
-    
+
     margin: auto;
     padding: 40px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
 }
+
 .footer-section h2 {
     /* color: #ffffff;
     font-size: 24px; */
     margin-bottom: 15px;
 }
+
 .footer-section h3 {
     /* color: #ffffff;
     font-size: 17px; */
     margin-bottom: 15px;
 }
+
 .footer-section p {
     color: #dbe5f5;
     line-height: 1.6;
 }
+
 .footer-section a {
     display: block;
     color: #dbe5f5;
     text-decoration: none;
-    margin:10px 0;
+    margin: 10px 0;
 }
+
 .footer-section a:hover {
     color: #ffffff;
-    
+
 }
+
 .footer-bottom {
-    
+
     text-align: center;
     padding: 15px;
     border-top: 1px solid #405070;
 }
+
 .footer-bottom p {
     color: #dbe5f5;
-    
+
+}
+
+/* Quantity, total and notification styling */
+.quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0 8px;
+}
+
+.product-info input[type="number"] {
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 14px 0 20px;
+}
+
+.toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 2000;
+    background: #166534;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px #0002;
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: .25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+    header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .details {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .product-image,
+    .product-info {
+        width: 100%;
+    }
+
+    .product-image img {
+        height: 280px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
