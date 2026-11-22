@@ -1,319 +1,239 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - ShopZone</title>
+    <title>Checkout | ShopZone</title>
     <link rel="stylesheet" href="../CSS/checkout.css">
+    <script src="../JS/checkout.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            ShopZone
-        </div>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="categories.html">Categories</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="products.html">Products</a>
-            <a href="product-details.html">Product Details</a>
-            <a href="cart.html">Cart</a>
-            <a href="checkout.html">Checkout</a>
-            <a href="login.html">Login</a>
-            <a href="register.html">Register</a>
-            <a href="orders.html">Orders</a>
-            <a href="profile.html">Profile</a>
-        </nav>
-    </header>
-    <main>
-        <h1>Checkout</h1>
-        <div class="checkout-container">
-            <section class="checkout-form">
-                <div class="checkout-box">
-                    <h2>Delivery Address</h2>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">
-                                First Name
-                            </label>
-                            <input
-                                type="text"
-                                id="first-name"
-                                placeholder="Enter first name"
-                            >
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name">
-                                Last Name
-                            </label>
-                            <input
-                                type="text"
-                                id="last-name"
-                                placeholder="Enter last name"
-                            >
-                        </div>
+
+<header class="header">
+    <div class="logo">ShopZone</div>
+    <nav>
+    <a href="home.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="products.html">Products</a>
+    <a href="product-details.html">Product Details</a>
+    <a href="cart.html">Cart</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="orders.html">Orders</a>
+    <a href="profile.html">Profile</a>
+</nav>
+</header>
+
+<main class="container">
+    <h1 id="pageTitle">Checkout</h1>
+    <p class="subtitle" id="pageSubtitle">Complete your order details below.</p>
+
+    <div id="authNotice" class="notice notice-warn" role="alert" hidden>
+        Please <a href="login.html">log in</a> to your account before placing your order.
+    </div>
+
+    <div id="formError" class="notice notice-error" role="alert" hidden></div>
+
+    <div id="emptyState" class="empty-state" hidden>
+        <h2>Your cart is empty</h2>
+        <p>Add some products to your cart before checking out.</p>
+        <a href="products.html" class="btn-link">Shop Now</a>
+        <a href="cart.html" class="text-link">Go to Cart</a>
+    </div>
+
+    <div class="checkout-layout" id="checkoutLayout">
+
+        <section class="checkout-form">
+            <form id="checkoutForm" novalidate>
+
+                <h2>Customer Information</h2>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" autocomplete="name"
+                               placeholder="Enter your full name" required
+                               aria-describedby="fullName-error">
+                        <small class="field-error" id="fullName-error"></small>
                     </div>
-                    <div class="form-group">
-                        <label for="email">
-                            Email Address
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                        >
+
+                    <div class="field">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" autocomplete="email"
+                               placeholder="Enter your email" required
+                               aria-describedby="email-error email-hint">
+                        <small class="field-hint" id="email-hint" hidden>
+                            Linked to your logged-in account.
+                        </small>
+                        <small class="field-error" id="email-error"></small>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">
-                            Phone Number
-                        </label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            placeholder="Enter phone number"
-                        >
-                    </div>
-                    <div class="form-group">
-                        <label for="address">
-                            Address
-                        </label>
-                        <textarea
-                            id="address"
-                            placeholder="Enter your complete address"
-                        ></textarea>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city">
-                                City
-                            </label>
-                            <input
-                                type="text"
-                                id="city"
-                                placeholder="Enter city"
-                            >
-                        </div>
-                        <div class="form-group">
-                            <label for="state">
-                                State
-                            </label>
-                            <input
-                                type="text"
-                                id="state"
-                                placeholder="Enter state"
-                            >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pincode">
-                            Pincode
-                        </label>
-                        <input
-                            type="text"
-                            id="pincode"
-                            placeholder="Enter pincode"
-                        >
+
+                    <div class="field">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" autocomplete="tel-national"
+                               inputmode="numeric" maxlength="10"
+                               placeholder="10-digit mobile number" required
+                               aria-describedby="phone-error">
+                        <small class="field-error" id="phone-error"></small>
                     </div>
                 </div>
-                <div class="checkout-box payment-box">
-                    <h2>Payment Method</h2>
-                    <div class="payment-option">
-                        <input
-                            type="radio"
-                            id="upi"
-                            name="payment"
-                        >
-                        <label for="upi">
-                            <strong>UPI</strong>
-                            <span>
-                                Pay using UPI
-                            </span>
-                        </label>
+
+                <h2 class="section-heading">Shipping Address</h2>
+
+                <div class="form-grid">
+                    <div class="field field-wide">
+                        <label for="address">Delivery Address</label>
+                        <textarea id="address" autocomplete="street-address"
+                                  placeholder="House no., street, area, landmark"
+                                  required aria-describedby="address-error"></textarea>
+                        <small class="field-error" id="address-error"></small>
                     </div>
-                    <div class="payment-option">
-                        <input
-                            type="radio"
-                            id="card"
-                            name="payment"
-                        >
-                        <label for="card">
-                            <strong>Credit / Debit Card</strong>
-                            <span>
-                                Pay securely using your card
-                            </span>
-                        </label>
+
+                    <div class="field">
+                        <label for="city">City</label>
+                        <input type="text" id="city" autocomplete="address-level2"
+                               placeholder="Enter your city" required
+                               aria-describedby="city-error">
+                        <small class="field-error" id="city-error"></small>
                     </div>
-                    <div class="payment-option">
-                        <input
-                            type="radio"
-                            id="cod"
-                            name="payment"
-                        >
-                        <label for="cod">
+
+                    <div class="field">
+                        <label for="pincode">PIN Code</label>
+                        <input type="text" id="pincode" autocomplete="postal-code"
+                               inputmode="numeric" maxlength="6"
+                               placeholder="6-digit PIN code" required
+                               aria-describedby="pincode-error">
+                        <small class="field-error" id="pincode-error"></small>
+                    </div>
+                </div>
+
+                <h2 class="section-heading">Payment Method</h2>
+
+                <p class="demo-note">
+                    Demo payments only. No real money is charged, so please don't enter real card details.
+                </p>
+
+                <div class="payment-option selected">
+                    <label>
+                        <input type="radio" name="payment" value="Cash on Delivery" checked>
+                        <span class="payment-text">
                             <strong>Cash on Delivery</strong>
-                            <span>
-                                Pay when your order arrives
-                            </span>
-                        </label>
+                            <small>Pay when your order arrives</small>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="payment-option">
+                    <label>
+                        <input type="radio" name="payment" value="UPI">
+                        <span class="payment-text">
+                            <strong>UPI</strong>
+                            <small>Pay using your UPI ID (demo)</small>
+                        </span>
+                    </label>
+
+                    <div class="payment-details" id="upiDetails" hidden>
+                        <div class="field">
+                            <label for="upiId">UPI ID</label>
+                            <input type="text" id="upiId" autocomplete="off"
+                                   placeholder="yourname@bank"
+                                   aria-describedby="upiId-error">
+                            <small class="field-error" id="upiId-error"></small>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <aside class="order-summary">
-                <h2>Order Summary</h2>
-                <div class="summary-product">
-                    <div>                        
-                        <h3>
-                            Wireless Headphones
-                        </h3>
-                        <p>
-                            Quantity: 1
-                        </p>
+
+                <div class="payment-option">
+                    <label>
+                        <input type="radio" name="payment" value="Card">
+                        <span class="payment-text">
+                            <strong>Credit / Debit Card</strong>
+                            <small>Visa, Mastercard, RuPay (demo)</small>
+                        </span>
+                    </label>
+
+                    <div class="payment-details" id="cardDetails" hidden>
+                        <div class="form-grid">
+                            <div class="field field-wide">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" autocomplete="off"
+                                       inputmode="numeric" maxlength="23"
+                                       placeholder="1234 5678 9012 3456"
+                                       aria-describedby="cardNumber-error">
+                                <small class="field-error" id="cardNumber-error"></small>
+                            </div>
+
+                            <div class="field field-wide">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" autocomplete="off"
+                                       placeholder="As printed on the card"
+                                       aria-describedby="cardName-error">
+                                <small class="field-error" id="cardName-error"></small>
+                            </div>
+
+                            <div class="field">
+                                <label for="cardExpiry">Expiry (MM/YY)</label>
+                                <input type="text" id="cardExpiry" autocomplete="off"
+                                       inputmode="numeric" maxlength="5" placeholder="MM/YY"
+                                       aria-describedby="cardExpiry-error">
+                                <small class="field-error" id="cardExpiry-error"></small>
+                            </div>
+
+                            <div class="field">
+                                <label for="cardCvv">CVV</label>
+                                <input type="password" id="cardCvv" autocomplete="off"
+                                       inputmode="numeric" maxlength="4" placeholder="3 or 4 digits"
+                                       aria-describedby="cardCvv-error">
+                                <small class="field-error" id="cardCvv-error"></small>
+                            </div>
+                        </div>
                     </div>
-                    <strong>
-                        ₹1,999
-                    </strong>
                 </div>
-                <div class="summary-product">
-                    <div>
-                        <h3>
-                            Casual T-Shirt
-                        </h3>
-                        <p>
-                            Quantity: 1
-                        </p>
-                    </div>
-                    <strong>
-                        ₹499
-                    </strong>
-                </div>
-                <div class="summary-product">
-                    <div>
-                        <h3>
-                            Running Sneakers
-                        </h3>
-                        <p>
-                            Quantity: 1
-                        </p>
-                    </div>
-                    <strong>
-                        ₹1,299
-                    </strong>
-                </div>
-                <hr>
-                <div class="summary-row">
-                    <span>
-                        Subtotal
-                    </span>
-                    <span>
-                        ₹3,797
-                    </span>
-                </div>
-                <div class="summary-row">
-                    <span>
-                        Delivery Charge
-                    </span>
-                    <span>
-                        ₹50
-                    </span>
-                </div>
-                <div class="summary-row">
-                    <span>
-                        Discount
-                    </span>
-                    <span class="discount">
-                        - ₹0
-                    </span>
-                </div>
-                <hr>
-                <div class="total-row">
-                    <span>
-                        Total Amount
-                    </span>
-                    <strong>
-                        ₹3,847
-                    </strong>
-                </div>
-                <button
-                    type="button"
-                    class="place-order-btn"
-                >
+
+                <button type="submit" class="place-order-btn" id="placeOrderBtn" disabled>
                     Place Order
                 </button>
-                <p class="secure-text">
-                    🔒 Your information is secure
-                </p>
-            </aside>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h2>
-                    ShopZone
-                </h2>
-                <p>
-                    Your simple and trusted
-                    online marketplace.
-                </p>
+
+            </form>
+        </section>
+
+        <aside class="order-summary" aria-label="Order summary">
+            <h2>Your Order</h2>
+
+            <div id="checkoutItems"></div>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
             </div>
-            <div class="footer-section">
-                <h3>
-                    Quick Links
-                </h3>
-                <a href="home.html">
-                    Home
-                </a>
-                <a href="categories.html">
-                    Categories
-                </a>
-                <a href="products.html">
-                    Products
-                </a>
-                <a href="about.html">
-                    About Us
-                </a>
-                <a href="contact.html">
-                    Contact Us
-                </a>
+
+            <div class="summary-row">
+                <span>Delivery</span>
+                <span id="delivery">₹0</span>
             </div>
-            <div class="footer-section">
-                <h3>
-                    Customer
-                </h3>
-                <a href="login.html">
-                    Login
-                </a>
-                <a href="register.html">
-                    Register
-                </a>
-                <a href="orders.html">
-                    My Orders
-                </a>
-                <a href="profile.html">
-                    My Profile
-                </a>
+
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="total">₹0</span>
             </div>
-            <div class="footer-section">
-                <h3>
-                    Contact
-                </h3>
-                <p>
-                    Email: support@shopzone.com
-                </p>
-                <p>
-                    Phone: +91 98765 43210
-                </p>
-                <p>
-                    India
-                </p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>
-                © 2026 ShopZone. All Rights Reserved.
-            </p>
-        </div>
-    </footer>
+
+            <a href="cart.html" class="back-link">← Back to Cart</a>
+        </aside>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© 2026 ShopZone. Your simple and trusted online marketplace.</p>
+</footer>
+
+<noscript>
+    <p class="noscript-msg">Please enable JavaScript to complete your checkout.</p>
+</noscript>
+
 </body>
 </html>
