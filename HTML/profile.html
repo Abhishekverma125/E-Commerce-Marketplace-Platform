@@ -1,26 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>ShopZone - Profile</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | ShopZone</title>
     <link rel="stylesheet" href="../css/profile.css">
-
 </head>
-
 <body>
 
-
 <header>
-    <div class="logo">
-        ShopZone
-    </div>
+    <div class="logo">ShopZone</div>
 
     <nav>
         <a href="home.html">Home</a>
@@ -36,80 +26,48 @@
         <a href="orders.html">Orders</a>
         <a href="profile.html">Profile</a>
     </nav>
-    <div>
-        
-    </div>
+
 </header>
-
-
 
 <main class="profile-container">
 
-
     <aside class="sidebar">
 
-        <h3>
-            My Account
-        </h3>
+        <h3>My Account</h3>
 
-
-        <a href="orders.html">
-            My Orders
-        </a>
-
-        <a href="#">
-            Wishlist
-        </a>
-
-        <a href="#">
-            Addresses
-        </a>
-
-        <a href="profile.html">
-            Settings
-        </a>
-
-        <a href="#">
-            Logout
-        </a>
+        <a href="profile.html">My Profile</a>
+        <a href="orders.html">My Orders</a>
+        <a href="#" id="logoutButton">Logout</a>
 
     </aside>
 
-
-
     <section class="profile-box">
 
-        <h1>
-            Profile Settings
-        </h1>
+        <h1>My Profile</h1>
 
+        <div class="profile-picture">👤</div>
 
-        <div class="profile-picture">
-            👤
-        </div>
+        <form id="profileForm">
 
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
 
-        <label>
-            Full Name
-        </label>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" readonly>
 
-        <input
-            type="text"
-            value="Aaditya Vashishth">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone"
+                   placeholder="Enter your phone number">
 
+            <label for="address">Address</label>
+            <input type="text" id="address"
+                   placeholder="Enter your address">
 
-        <label>
-            Email
-        </label>
+            <p id="message"></p>
 
-        <input
-            type="email"
-            value="aaditya@example.com">
+            <button type="submit">Save Changes</button>
 
-
-        <button>
-            Update Profile
-        </button>
+        </form>
 
     </section>
 
@@ -119,20 +77,12 @@
     <div class="footer-content">
 
         <div class="footer-section">
-            <h2>
-                ShopZone
-            </h2>
-            <p>
-                Your simple and trusted
-                online marketplace.
-            </p>
+            <h2>ShopZone</h2>
+            <p>Your simple and trusted<br>online marketplace.</p>
         </div>
 
         <div class="footer-section">
-            <h3>
-                Quick Links
-            </h3>
-
+            <h3>Quick Links</h3>
             <a href="home.html">Home</a>
             <a href="categories.html">Categories</a>
             <a href="products.html">Products</a>
@@ -141,10 +91,7 @@
         </div>
 
         <div class="footer-section">
-            <h3>
-                Customer
-            </h3>
-
+            <h3>Customer</h3>
             <a href="login.html">Login</a>
             <a href="register.html">Register</a>
             <a href="orders.html">My Orders</a>
@@ -152,31 +99,19 @@
         </div>
 
         <div class="footer-section">
-            <h3>
-                Contact
-            </h3>
-
-            <p>
-                Email: support@shopzone.com
-            </p>
-
-            <p>
-                Phone: +91 98765 43210
-            </p>
-
-            <p>
-                India
-            </p>
+            <h3>Contact</h3>
+            <p>Email: support@shopzone.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>India</p>
         </div>
 
     </div>
 
     <div class="footer-bottom">
-        <p>
-            © 2026 ShopZone. All Rights Reserved.
-        </p>
+        <p>© 2026 ShopZone. All Rights Reserved.</p>
     </div>
 </footer>
 
+<script src="../js/profile.js"></script>
 </body>
 </html>
