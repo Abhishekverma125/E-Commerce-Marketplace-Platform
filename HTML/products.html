@@ -5,171 +5,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopZone - Products</title>
-    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../CSS/products.css">
 </head>
 
 <body>
-
     <header>
-        <div class="logo">ShopZone</div>
-
+        <div class="logo">
+            ShopZone
+        </div>
         <nav>
             <a href="home.html">Home</a>
-            <a href="products.html">Products</a>
             <a href="categories.html">Categories</a>
             <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="products.html">Products</a>
+            <a href="product-details.html">Product Details</a>
+            <a href="cart.html">Cart</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <a href="orders.html">Orders</a>
+            <a href="profile.html">Profile</a>
         </nav>
-
-        <div>🔍 🛒 👤</div>
     </header>
-
     <main>
-
         <h1>Product Listing</h1>
-
         <div class="product-layout">
-
             <aside>
-
                 <h3>Filters</h3>
-
-                <h4>Category</h4>
-
-                <label>
-                    <input type="checkbox"> Electronics
-                </label>
-
-                <label>
-                    <input type="checkbox"> Fashion
-                </label>
-
-                <label>
-                    <input type="checkbox"> Home
-                </label>
-
-                <label>
-                    <input type="checkbox"> Beauty
-                </label>
-
-                <h4>Price Range</h4>
-
-                <label>
-                    <input type="radio" name="price"> Under ₹1,000
-                </label>
-
-                <label>
-                    <input type="radio" name="price"> ₹1,000 - ₹5,000
-                </label>
-
-                <label>
-                    <input type="radio" name="price"> Above ₹5,000
-                </label>
-
+                <h4>Category</h4><label><input class="category-filter" type="checkbox" value="Electronics">
+                    Electronics</label><label><input class="category-filter" type="checkbox" value="Fashion">
+                    Fashion</label><label><input class="category-filter" type="checkbox" value="Home">
+                    Home</label><label><input class="category-filter" type="checkbox" value="Beauty"> Beauty</label>
+                <h4>Price Range</h4><label><input type="radio" name="price" value="all" checked> All
+                    prices</label><label><input type="radio" name="price" value="under"> Under
+                    ₹1,000</label><label><input type="radio" name="price" value="middle"> ₹1,000 -
+                    ₹5,000</label><label><input type="radio" name="price" value="above"> Above ₹5,000</label>
+                <div class="filter-actions"><button id="clear-filters" type="button">Clear Filters</button></div>
             </aside>
-
             <section class="products">
-
-                <div class="sort">
-                    Sort By:
-                    <select>
-                        <option>Popularity</option>
-                        <option>Price Low to High</option>
-                        <option>Price High to Low</option>
-                    </select>
+                <div class="sort">Sort By: <select id="sort-by">
+                        <option value="popular">Popularity</option>
+                        <option value="low-high">Price Low to High</option>
+                        <option value="high-low">Price High to Low</option>
+                        <option value="name">Name A to Z</option>
+                    </select></div>
+                <p class="product-count" id="product-count" aria-live="polite"></p>
+                <div class="product-grid" id="product-grid">
+                    <article class="product-card" data-name="Wireless Headphones" data-price="1999"
+                        data-category="Electronics" data-popularity="6"><a href="product-details.html"><img
+                                src="../IMAGES/headphones.jpg" alt="Wireless Headphones">
+                            <h3>Wireless Headphones</h3>
+                            <p>₹1,999</p><span>★★★★★</span>
+                            <p class="card-category">Electronics</p>
+                        </a></article>
+                    <article class="product-card" data-name="T-Shirt" data-price="499" data-category="Fashion"
+                        data-popularity="5"><a href="product-details.html"><img src="../IMAGES/tshirt.jpg"
+                                alt="T-Shirt">
+                            <h3>T-Shirt</h3>
+                            <p>₹499</p><span>★★★★☆</span>
+                            <p class="card-category">Fashion</p>
+                        </a></article>
+                    <article class="product-card" data-name="Sneakers" data-price="1299" data-category="Fashion"
+                        data-popularity="4"><a href="product-details.html"><img src="../IMAGES/shoes.jpg"
+                                alt="Sneakers">
+                            <h3>Sneakers</h3>
+                            <p>₹1,299</p><span>★★★★★</span>
+                            <p class="card-category">Fashion</p>
+                        </a></article>
+                    <article class="product-card" data-name="Laptop" data-price="52999" data-category="Electronics"
+                        data-popularity="3"><a href="product-details.html"><img src="../IMAGES/laptop.jpg" alt="Laptop">
+                            <h3>Laptop</h3>
+                            <p>₹52,999</p><span>★★★★☆</span>
+                            <p class="card-category">Electronics</p>
+                        </a></article>
+                    <article class="product-card" data-name="Smart Watch" data-price="2499" data-category="Electronics"
+                        data-popularity="2"><a href="product-details.html"><img src="../IMAGES/watch.jpg"
+                                alt="Smart Watch">
+                            <h3>Smart Watch</h3>
+                            <p>₹2,499</p><span>★★★★★</span>
+                            <p class="card-category">Electronics</p>
+                        </a></article>
+                    <article class="product-card" data-name="Backpack" data-price="999" data-category="Fashion"
+                        data-popularity="1"><a href="product-details.html"><img src="../IMAGES/backpack.jpg"
+                                alt="Backpack">
+                            <h3>Backpack</h3>
+                            <p>₹999</p><span>★★★★☆</span>
+                            <p class="card-category">Fashion</p>
+                        </a></article>
                 </div>
-
-                <div class="product-grid">
-
-                    <div class="product-card">
-                        <img src="../Images/headphones.jpg">
-                        <h3>Wireless Headphones</h3>
-                        <p>₹1,999</p>
-                        <span>★★★★★</span>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="../Images/tshirt.jpg">
-                        <h3>T-Shirt</h3>
-                        <p>₹499</p>
-                        <span>★★★★☆</span>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="../Images/shoes.jpg">
-                        <h3>Sneakers</h3>
-                        <p>₹1,299</p>
-                        <span>★★★★★</span>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="../Images/laptop.jpg">
-                        <h3>Laptop</h3>
-                        <p>₹52,999</p>
-                        <span>★★★★☆</span>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="../Images/watch.jpg">
-                        <h3>Smart Watch</h3>
-                        <p>₹2,499</p>
-                        <span>★★★★★</span>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="../Images/backpack.jpg">
-                        <h3>Backpack</h3>
-                        <p>₹999</p>
-                        <span>★★★★☆</span>
-                    </div>
-
-                </div>
-
             </section>
-
         </div>
-
     </main>
-
     <footer>
-
         <div class="footer-content">
-
             <div class="footer-section">
-                <h2>ShopZone</h2>
-                <p>Your one-stop destination for online shopping.</p>
-                <p>Quality products at affordable prices.</p>
+                <h2>
+                    ShopZone
+                </h2>
+                <p>
+                    Your simple and trusted
+                    online marketplace.
+                </p>
             </div>
-
             <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="home.html">Home</a>
-                <a href="products.html">Products</a>
-                <a href="categories.html">Categories</a>
-                <a href="about.html">About</a>
+                <h3>
+                    Quick Links
+                </h3>
+                <a href="home.html">
+                    Home
+                </a>
+                <a href="categories.html">
+                    Categories
+                </a>
+                <a href="products.html">
+                    Products
+                </a>
+                <a href="about.html">
+                    About Us
+                </a>
+                <a href="contact.html">
+                    Contact Us
+                </a>
             </div>
-
             <div class="footer-section">
-                <h3>Customer Service</h3>
-                <a href="#">Contact Us</a>
-                <a href="#">Shipping</a>
-                <a href="#">Returns</a>
-                <a href="#">FAQ</a>
+                <h3>
+                    Customer
+                </h3>
+                <a href="login.html">
+                    Login
+                </a>
+                <a href="register.html">
+                    Register
+                </a>
+                <a href="orders.html">
+                    My Orders
+                </a>
+                <a href="profile.html">
+                    My Profile
+                </a>
             </div>
-
             <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: support@shopzone.com</p>
-                <p>Phone: +91 98765 43210</p>
-                <p>India</p>
+                <h3>
+                    Contact
+                </h3>
+                <p>
+                    Email: support@shopzone.com
+                </p>
+                <p>
+                    Phone: +91 98765 43210
+                </p>
+                <p>
+                    India
+                </p>
             </div>
-
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2026 ShopZone. All Rights Reserved.</p>
+            <p>
+                © 2026 ShopZone. All Rights Reserved.
+            </p>
         </div>
-
     </footer>
-
+    <script src="../JS/products.js"></script>
 </body>
+
 </html>
